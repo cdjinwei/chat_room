@@ -28,7 +28,7 @@ cc.Class({
 
     connectServer() {
         let _this = this;
-        this.conn = new WebSocket('ws://192.168.0.110:8123');
+        this.conn = new WebSocket('ws://47.104.189.170:8123');
 
         this.conn.onopen = function (params) {
             console.log('client connected!');
@@ -52,6 +52,7 @@ cc.Class({
 
     sendText() {
         let str = this.edit_box.string;
+        this.edit_box.string = '';
         if (this.conn) {
             this.conn.send(str);
         }
